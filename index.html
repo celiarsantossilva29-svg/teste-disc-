@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste DISC - Avaliação de Perfil Comportamental</title>
+    <meta name="description"
+        content="Descubra seu perfil comportamental DISC. Avaliação profissional de Dominância, Influência, Estabilidade e Conformidade.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- ===== TELA INICIAL ===== -->
+    <section id="welcome-screen" class="screen active">
+        <div class="container">
+            <div class="welcome-badge">AVALIAÇÃO COMPORTAMENTAL</div>
+            <h1 class="welcome-title">TESTE <span class="gold">DISC</span></h1>
+            <p class="welcome-subtitle">Descubra seu perfil comportamental e entenda como você age, se comunica e toma
+                decisões.</p>
+
+            <div class="tips-card">
+                <h3>✦ Dicas para um bom resultado</h3>
+                <ul>
+                    <li>Não há resultado bom ou ruim — seja sincero.</li>
+                    <li>Escolha um momento tranquilo para fazer o teste.</li>
+                    <li>A primeira resposta que vier à mente geralmente é a mais correta.</li>
+                    <li>Responda pensando em quem você <strong>é</strong>, não em quem gostaria de ser.</li>
+                </ul>
+            </div>
+
+            <div class="form-group">
+                <label for="user-name">Seu nome completo</label>
+                <input type="text" id="user-name" placeholder="Digite seu nome completo" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+                <label for="user-email">Seu e-mail</label>
+                <input type="email" id="user-email" placeholder="Digite seu melhor e-mail" autocomplete="email"
+                    required>
+            </div>
+
+            <button id="btn-start" class="btn-primary" onclick="startTest()">
+                Iniciar Teste
+                <span class="btn-arrow">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ===== TELA DO TESTE ===== -->
+    <section id="test-screen" class="screen">
+        <div class="container">
+            <div class="test-header">
+                <div class="progress-info">
+                    <span id="group-counter">Grupo 1 de 28</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <h2 class="test-instruction">Selecione o adjetivo que <span class="gold">melhor descreve você</span></h2>
+
+            <div id="adjective-group" class="adjective-group">
+                <!-- Adjetivos renderizados via JS -->
+            </div>
+
+            <div class="test-nav">
+                <button id="btn-prev" class="btn-secondary" onclick="prevGroup()" disabled>
+                    ← Anterior
+                </button>
+                <button id="btn-next" class="btn-primary" onclick="nextGroup()">
+                    Próximo →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TELA DE RESULTADO ===== -->
+    <section id="result-screen" class="screen">
+        <div class="container">
+            <div class="result-badge">RESULTADO</div>
+            <h2 class="result-title">Perfil de <span id="result-name" class="gold"></span></h2>
+
+            <div class="dominant-profile" id="dominant-profile">
+                <div class="profile-icon" id="profile-icon"></div>
+                <h3 id="profile-type"></h3>
+                <p id="profile-subtitle"></p>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Pontuação por Dimensão</h3>
+                <div class="chart">
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">D <span>Dominância</span></div>
+                        <div class="chart-bar-bg">
+                            <div id="bar-D" class="chart-bar bar-d"></div>
+                        </div>
+                        <span id="score-D" class="chart-score">0%</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">I <span>Influência</span></div>
+                        <div class="chart-bar-bg">
+                            <div id="bar-I" class="chart-bar bar-i"></div>
+                        </div>
+                        <span id="score-I" class="chart-score">0%</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">S <span>Estabilidade</span></div>
+                        <div class="chart-bar-bg">
+                            <div id="bar-S" class="chart-bar bar-s"></div>
+                        </div>
+                        <span id="score-S" class="chart-score">0%</span>
+                    </div>
+                    <div class="chart-bar-wrapper">
+                        <div class="chart-label">C <span>Conformidade</span></div>
+                        <div class="chart-bar-bg">
+                            <div id="bar-C" class="chart-bar bar-c"></div>
+                        </div>
+                        <span id="score-C" class="chart-score">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="profile-description" class="profile-description">
+                <!-- Descrições detalhadas renderizadas via JS -->
+            </div>
+
+            <div id="email-status" class="email-status"></div>
+
+            <button class="btn-primary" onclick="restartTest()">
+                Refazer Teste
+                <span class="btn-arrow">↻</span>
+            </button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
