@@ -558,14 +558,6 @@ function displayResults(dominant, percentages, scores) {
         <ul>
             ${profile.strengths.map(s => `<li>${s}</li>`).join('')}
         </ul>
-
-        <h4>⚡ Pontos de Atenção</h4>
-        <ul>
-            ${profile.challenges.map(c => `<li>${c}</li>`).join('')}
-        </ul>
-
-        <h4>🏢 Ambiente Ideal</h4>
-        <p>${profile.environment}</p>
     `;
 }
 
